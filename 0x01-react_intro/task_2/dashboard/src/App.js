@@ -14,12 +14,12 @@ function App() {
         <p>Login to access the full dashboard</p>
         <form>
           <div>
-            <label for='email'>email</label>
+            <label htmlFor='email'>email: </label>
             <input type='email' id='email' />
           </div>
 
           <div>
-            <label for='password'>password</label>
+            <label htmlFor='password'>password: </label>
             <input type='password' id='password' />
           </div>
 

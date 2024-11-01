@@ -15,12 +15,14 @@ export default function Notifications() {
       <div>
         <p>Here is the list of notifications</p>
         <ul>
-          <li data->New course available</li>
-          <li>New resume available</li>
-          <li>{getLatestNotification()}</li>
+          <li data-priority='default'>New course available</li>
+          <li data-priority='urgent'>New resume available</li>
+          <li data-priority='urgent'>{getLatestNotification()}</li>
         </ul>
       </div>
-      <button aria-label='close'>x</button>
+      <button aria-label='close' style={{ alignSelf: 'start' }}>
+        x
+      </button>
     </div>
   );
 }
