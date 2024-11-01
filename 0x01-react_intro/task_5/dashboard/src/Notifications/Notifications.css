@@ -9,3 +9,13 @@
 [data-priority='urgent'] {
   color: red;
 }
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button img {
+  width: 15px;
+}

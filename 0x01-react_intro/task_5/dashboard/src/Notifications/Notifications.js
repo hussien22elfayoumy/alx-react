@@ -1,6 +1,7 @@
 import React from 'react';
 import './Notifications.css';
 import { getLatestNotification } from '../utils/utils';
+import closeIcon from '../assets/close-icon.png';
 
 export default function Notifications() {
   return (
@@ -24,7 +25,7 @@ export default function Notifications() {
         </ul>
       </div>
       <button aria-label='close' style={{ alignSelf: 'start' }}>
-        x
+        <img src={closeIcon} alt='cloe icon' />
       </button>
     </div>
   );
