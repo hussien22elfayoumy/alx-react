@@ -1,0 +1,2 @@
+body{font-family:sans-serif}.App{display:flex;flex-direction:column;min-height:100vh}.App-header{align-items:center;border-bottom:2px solid #f23655;display:flex}.App-header h1{color:#f23655}.App-header img{width:200px}.App-body{flex-grow:1;padding:20px}.App-footer{border-top:2px solid #f23655;font-style:italic;padding:20px;text-align:center}form input{margin:10px}.Notifications{border:3px dashed #f23655;padding:10px}[data-priority=default]{color:blue}[data-priority=urgent]{color:red}
+/*# sourceMappingURL=main.e8adc7a8.css.map*/
