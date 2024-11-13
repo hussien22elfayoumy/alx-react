@@ -7,6 +7,7 @@ import Footer from '../Footer/Footer';
 import Notifications from '../Notifications/Notifications';
 import CourseList from '../CourseList/CourseList';
 import { getLatestNotification } from '../utils/utils';
+
 //prettier-ignore
 class App extends React.Component {
 	constructor(props) {
@@ -20,6 +21,7 @@ class App extends React.Component {
     { id: 2, name: 'Webpack', credit: 20 },
     { id: 3, name: 'React', credit: 40 },
   ];
+
   listNotifications = [
     { id: 1, type: 'default', value: 'New course available' },
     { id: 2, type: 'urgent', value: 'New resume available' },
@@ -60,16 +62,16 @@ class App extends React.Component {
   }
 }
 
-App.propTypes = {
-  isLoggedIn: PropTypes.bool,
-  logOut: PropTypes.func,
-};
-
 App.defaultProps = {
   isLoggedIn: false,
   logOut: () => {
     return;
   },
+};
+
+App.propTypes = {
+  isLoggedIn: PropTypes.bool,
+  logOut: PropTypes.func,
 };
 
 export default App;
