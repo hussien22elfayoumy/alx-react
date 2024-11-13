@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default function CourseListRow({
-  isHeader,
+  isHeader = false,
   textFirstCell,
-  textSecondCell,
+  textSecondCell = null,
 }) {
   return (
     <tr>
@@ -30,10 +30,5 @@ export default function CourseListRow({
 CourseListRow.propTypes = {
   isHeader: PropTypes.bool,
   textFirstCell: PropTypes.string.isRequired,
-  textSecondCell: PropTypes.string,
-};
-
-CourseListRow.defaultProps = {
-  isHeader: false,
-  textSecondCell: null,
+  textSecondCell: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
