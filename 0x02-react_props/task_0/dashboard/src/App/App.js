@@ -8,16 +8,15 @@ import Notifications from '../Notifications/Notifications';
 function App() {
   return (
     <>
-      <div className='root-notifications'>
-        <Notifications />
-      </div>
+      <Notifications />
       <div className='App'>
         <Header />
         <div className='App-body'>
           <Login />
         </div>
-
-        <Footer />
+        <div className='App-footer'>
+          <Footer />
+        </div>
       </div>
     </>
   );

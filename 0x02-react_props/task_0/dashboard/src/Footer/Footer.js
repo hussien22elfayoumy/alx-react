@@ -5,7 +5,7 @@ import './Footer.css';
 
 export default function Footer() {
   return (
-    <div className='footer'>
+    <div>
       Copyright {getFullYear()} - {getFooterCopy(true)}
     </div>
   );
