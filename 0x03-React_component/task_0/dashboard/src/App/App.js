@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import './App.css';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
@@ -8,7 +7,7 @@ import Footer from '../Footer/Footer';
 import Notifications from '../Notifications/Notifications';
 import CourseList from '../CourseList/CourseList';
 import { getLatestNotification } from '../utils/utils';
-
+//prettier-ignore
 class App extends React.Component {
   listCourses = [
     { id: 1, name: 'ES6', credit: 60 },
@@ -29,11 +28,7 @@ class App extends React.Component {
         <div className='App'>
           <Header />
           <div className='App-body'>
-            {this.props.isLoggedIn ? (
-              <CourseList listCourses={this.listCourses} />
-            ) : (
-              <Login />
-            )}
+					{this.props.isLoggedIn ? <CourseList listCourses={this.listCourses} /> : <Login />}
           </div>
           <div className='App-footer'>
             <Footer />
