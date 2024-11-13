@@ -1,30 +1,42 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { getLatestNotification } from '../utils/utils';
 import Notifications from './Notifications';
+import NotificationItem from './NotificationItem';
 
-describe('Notification component tests', () => {
+describe('Notification tests', () => {
   it('renders Notification component without crashing', () => {
-    const notification = shallow(<Notifications />);
+    const component = shallow(<Notifications />);
 
-    expect(notification).toBeDefined();
+    expect(component).toBeDefined();
   });
 
-  it('renders ul', () => {
-    const notification = shallow(<Notifications />);
-
-    expect(notification.find('ul')).toBeDefined();
+  it('renders correct list items', () => {
+    const wrapper = shallow(<Notifications />);
+    expect(wrapper.find('ul').children()).toHaveLength(3);
+    expect(wrapper.find('ul').childAt(0).html()).toEqual(
+      '<li data-priority="default">New course available</li>'
+    );
+    expect(wrapper.find('ul').childAt(1).html()).toEqual(
+      '<li data-priority="urgent">New resume available</li>'
+    );
+    expect(wrapper.find('ul').childAt(2).html()).toEqual(
+      `<li data-priority="urgent">${getLatestNotification()}</li>`
+    );
   });
 
-  it('renders three list items', () => {
-    const notification = shallow(<Notifications />);
-
-    expect(notification.find('li')).toHaveLength(3);
+  it('renders an unordered list', () => {
+    const wrapper = shallow(<Notifications />);
+    expect(wrapper.find('ul').children()).toHaveLength(3);
+    wrapper.find('ul').forEach((node) => {
+      expect(node.equals(<NotificationItem />));
+    });
   });
 
   it('renders correct text', () => {
-    const notification = shallow(<Notifications />);
+    const component = shallow(<Notifications />);
 
-    expect(notification.find('p').text()).toBe(
+    expect(component.find('p').prop('children')).toBe(
       'Here is the list of notifications'
     );
   });
