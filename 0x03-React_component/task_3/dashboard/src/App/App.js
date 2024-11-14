@@ -7,10 +7,11 @@ import Footer from '../Footer/Footer';
 import Notifications from '../Notifications/Notifications';
 import CourseList from '../CourseList/CourseList';
 import { getLatestNotification } from '../utils/utils';
+import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom';
+import BodySection from '../BodySection/BodySection';
 
-//prettier-ignore
 class App extends React.Component {
-	constructor(props) {
+  constructor(props) {
     super(props);
 
     this.handleKeyPress = this.handleKeyPress.bind(this);
@@ -28,21 +29,19 @@ class App extends React.Component {
     { id: 3, type: 'urgent', html: getLatestNotification() },
   ];
 
-	handleKeyPress(e) {
-    if (e.ctrlKey && e.key === "h") {
-      alert("Logging you out");
+  handleKeyPress(e) {
+    if (e.ctrlKey && e.key === 'h') {
+      alert('Logging you out');
       this.props.logOut();
     }
   }
   componentDidMount() {
-    document.addEventListener("keydown", this.handleKeyPress);
+    document.addEventListener('keydown', this.handleKeyPress);
   }
 
   componentWillUnmount() {
-    document.removeEventListener("keydown", this.handleKeyPress);
+    document.removeEventListener('keydown', this.handleKeyPress);
   }
-
-
 
   render() {
     return (
@@ -51,7 +50,20 @@ class App extends React.Component {
         <div className='App'>
           <Header />
           <div className='App-body'>
-					{this.props.isLoggedIn ? <CourseList listCourses={this.listCourses} /> : <Login />}
+            {this.props.isLoggedIn ? (
+              <>
+                <BodySectionWithMarginBottom title='Course list'>
+                  <CourseList listCourses={this.listCourses} />
+                </BodySectionWithMarginBottom>
+              </>
+            ) : (
+              <BodySectionWithMarginBottom title='Log in to continue'>
+                <Login />
+              </BodySectionWithMarginBottom>
+            )}
+            <BodySection title='News from the School'>
+              <p>Some random text</p>
+            </BodySection>
           </div>
           <div className='App-footer'>
             <Footer />
