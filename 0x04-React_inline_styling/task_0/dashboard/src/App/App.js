@@ -75,7 +75,7 @@ class App extends React.Component {
 }
 
 App.defaultProps = {
-  isLoggedIn: true,
+  isLoggedIn: false,
   logOut: () => {
     return;
   },
