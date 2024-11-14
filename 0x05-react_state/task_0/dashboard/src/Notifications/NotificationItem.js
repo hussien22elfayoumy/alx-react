@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { css, StyleSheet } from 'aphrodite';
 
 //prettier-ignore
 class NotificationItem extends React.PureComponent {
@@ -8,9 +9,10 @@ class NotificationItem extends React.PureComponent {
     return (
       <React.Fragment>
         {value ? (
-          <li onClick={() => markAsRead(id)} data-priority={type}>{value}</li>
+          <li className={css(styles[type])} onClick={() => markAsRead(id)} data-priority={type}>{value}</li>
         ) : (
           <li
+					className={css(styles[type])}
 					onClick={() => markAsRead(id)}
             data-priority={type}
             dangerouslySetInnerHTML={{ __html: html }}
@@ -20,6 +22,27 @@ class NotificationItem extends React.PureComponent {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  default: {
+    color: 'blue',
+    '@media (max-width: 900px)': {
+      borderBottom: '1px solid black',
+      listStyle: 'none',
+      fontSize: '20px',
+      padding: '10px 8px',
+    },
+  },
+  urgent: {
+    color: 'red',
+    '@media (max-width: 900px)': {
+      borderBottom: '1px solid black',
+      listStyle: 'none',
+      fontSize: '20px',
+      padding: '10px 8px',
+    },
+  },
+});
 
 NotificationItem.propTypes = {
   type: PropTypes.string.isRequired,
