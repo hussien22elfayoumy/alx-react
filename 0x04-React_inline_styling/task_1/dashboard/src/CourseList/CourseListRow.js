@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { StyleSheet, css } from 'aphrodite';
 
 const rowStyle = {
   backgroundColor: '#f5f5f5ab',
@@ -17,24 +18,37 @@ export default function CourseListRow({
     <tr style={rowStyle}>
       {isHeader ? (
         textSecondCell === null ? (
-          <th colSpan={2} style={headerStyle}>
+          <th className={css(styles.thtd)} colSpan={2} style={headerStyle}>
             {textFirstCell}
           </th>
         ) : (
           <>
-            <th style={headerStyle}>{textFirstCell}</th>
-            <th style={headerStyle}>{textSecondCell}</th>
+            <th className={css(styles.thtd)} style={headerStyle}>
+              {textFirstCell}
+            </th>
+            <th className={css(styles.thtd)} style={headerStyle}>
+              {textSecondCell}
+            </th>
           </>
         )
       ) : (
         <>
-          <td>{textFirstCell}</td>
-          <td>{textSecondCell}</td>
+          <td className={css(styles.thtd)}>{textFirstCell}</td>
+          <td className={css(styles.thtd)}>{textSecondCell}</td>
         </>
       )}
     </tr>
   );
 }
+
+const styles = StyleSheet.create({
+  thtd: {
+    width: '50%',
+    padding: '5px',
+    border: '1px solid black',
+    borderRadius: '5px',
+  },
+});
 
 CourseListRow.propTypes = {
   isHeader: PropTypes.bool,

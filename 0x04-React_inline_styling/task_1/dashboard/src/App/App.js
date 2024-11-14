@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './App.css';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
 import Footer from '../Footer/Footer';
@@ -50,7 +49,7 @@ class App extends React.Component {
         <Notifications listNotifications={this.listNotifications} />
         <div className={css(styles.App)}>
           <Header />
-          <div className='App-body'>
+          <div className={css(styles.AppBody)}>
             {this.props.isLoggedIn ? (
               <>
                 <BodySectionWithMarginBottom title='Course list'>
@@ -66,7 +65,7 @@ class App extends React.Component {
               <p>Some random text</p>
             </BodySection>
           </div>
-          <div className='App-footer'>
+          <div className={css(styles.AppFooter)}>
             <Footer />
           </div>
         </div>
@@ -80,6 +79,16 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     minHeight: '100vh',
+  },
+  AppBody: {
+    flexGrow: '1',
+    padding: '20px',
+  },
+  AppFooter: {
+    padding: '20px 20px',
+    borderTop: '2px solid rgb(242, 54, 85)',
+    textAlign: 'center',
+    fontStyle: 'italic',
   },
 });
 
