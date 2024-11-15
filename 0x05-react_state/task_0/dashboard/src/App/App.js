@@ -14,6 +14,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = { displayDrawer: false };
+    this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
+    this.handleHideDrawer = this.handleHideDrawer.bind(this);
+
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
@@ -43,10 +47,23 @@ class App extends React.Component {
     document.removeEventListener('keydown', this.handleKeyPress);
   }
 
+  handleDisplayDrawer() {
+    this.setState({ displayDrawer: true });
+  }
+
+  handleHideDrawer() {
+    this.setState({ displayDrawer: false });
+  }
+
   render() {
     return (
       <React.Fragment>
-        <Notifications listNotifications={this.listNotifications} />
+        <Notifications
+          displayDrawer={this.state.displayDrawer}
+          handleDisplayDrawer={this.handleDisplayDrawer}
+          handleHideDrawer={this.handleHideDrawer}
+          listNotifications={this.listNotifications}
+        />
         <div className={css(styles.App)}>
           <Header />
           <div className={css(styles.AppBody)}>
